@@ -1,0 +1,23 @@
+# Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse / VS Code
+.classpath
+.project
+.settings/
+.vscode/
+bin/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Student notes are personal; remove this line if you want them committed
+lab1-notes.md

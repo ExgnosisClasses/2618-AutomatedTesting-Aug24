@@ -1,0 +1,11 @@
+target/
+.idea/
+*.iml
+out/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+Thumbs.db

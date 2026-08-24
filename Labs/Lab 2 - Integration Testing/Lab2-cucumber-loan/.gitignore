@@ -1,0 +1,26 @@
+# Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse / VS Code
+.classpath
+.project
+.settings/
+.vscode/
+bin/
+
+# Cucumber reports
+target/cucumber-report.html
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Student notes are personal; remove this line if you want them committed
+lab2-notes.md
