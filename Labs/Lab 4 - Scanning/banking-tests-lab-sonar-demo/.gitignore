@@ -1,0 +1,13 @@
+target/
+.idea/
+*.iml
+out/
+.classpath
+.project
+.settings/
+.vscode/
+.scannerwork/
+.sonar/
+.DS_Store
+Thumbs.db
+lab4-notes.md

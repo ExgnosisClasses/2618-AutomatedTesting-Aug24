@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: banking-vulnerable-lab
+
+  datasource:
+    url: jdbc:h2:mem:bankdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+server:
+  port: 8090
