@@ -75,31 +75,27 @@ This matters for your expectations. Both projects contain injection vulnerabilit
 
 SonarQube is already installed on your VM. You are starting it, not installing it. (If you need to build a VM yourself, **Appendix A** has the full installation procedure.)
 
-### Task 1.1 -- Confirm the server is running
+### Task 1.1 -- Start the Server
 
-SonarQube is installed as a Windows service set to start automatically. Check it:
+SonarQube is not installed as a Windows service, so you manually have to start.
 
-1. Press `Win + R`, type `services.msc`, press Enter
-2. Find **SonarQube** in the list
-3. The Status column should read **Running**
-
-If it is not running, right-click and choose **Start**.
-
-If the service is missing entirely, open a terminal and start it manually:
+In a command window, type the command
 
 ```
-C:\sonarqube\bin\windows-x86-64\StartSonar.bat
+StartSonar
 ```
+
+Sonarqube is up an running when you see the output in the window say "SonarQube is operationsal"
 
 Leave that window open -- closing it stops the server.
 
-> **First startup takes several minutes** while Elasticsearch builds its index. Subsequent starts are much faster. If your instructor prepared the image correctly this has already happened once and you will not wait.
-
-### Task 1.2 -- Log in
+### Task 2.1 -- Login
 
 Browse to `http://localhost:9000`.
 
-Log in with the credentials on your lab handout. On a fresh install these are `admin` / `admin`, and SonarQube forces a password change on first login.
+There is a text file on your desktop named `SonarqubeCreds.txt`
+
+This contains your login id `admin` and password `Pa$$w0rdPa$$`, as well as the token that you will use in this lab.
 
 You should land on a dashboard with no projects yet.
 
@@ -114,7 +110,11 @@ SonarQube has two presentations of the same analysis:
 - **Standard Experience** -- findings are Bugs, Vulnerabilities and Code Smells, with severities Blocker / Critical / Major / Minor / Info
 - **MQR Mode** (Multi-Quality Rule, the default on new instances) -- findings map to software qualities (Reliability, Security, Maintainability) with severities Blocker / High / Medium / Low / Info
 
-**This lab is written in Standard Experience vocabulary**, because that is what nearly every tutorial, screenshot and Stack Overflow answer uses. If your instance is in MQR Mode, the findings are the same but the labels differ. Translate as follows:
+**This lab is written in Standard Experience vocabulary**, because that is what nearly every tutorial, screenshot and Stack Overflow answer uses. If your instance is in MQR Mode, the findings are the same but the labels differ. 
+
+Your VM is configured to use the Standard Experience
+
+Translate as follows:
 
 | Standard Experience | MQR Mode |
 |---|---|
@@ -126,6 +126,8 @@ SonarQube has two presentations of the same analysis:
 Note which mode you are in before continuing, so the screens match what you read here.
 
 ### Task 1.4 -- Generate an analysis token
+
+This is already done for you, but if you need to generate a new token for some reason, you can use this instructions to create a new one.
 
 Maven authenticates to SonarQube with a token, never a password.
 
@@ -174,6 +176,9 @@ Do not hunt for bugs yet. Get a feel for the shape.
 
 Open the IntelliJ terminal (**View -> Tool Windows -> Terminal**) in the project root:
 
+**_Note: This command below may not work in PowerShell so either run it in a command prompt or use double quotes like this "-Dsonar.token=YOUR_TOKEN_HERE"_**
+
+This lab was tested using cmd prompts
 ```
 mvn clean verify sonar:sonar -Dsonar.token=YOUR_TOKEN_HERE
 ```
